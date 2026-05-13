@@ -1,0 +1,68 @@
+[
+    {
+        "file_name": "book",
+        "id": 1,
+        "created_at": "2026-05-13 13:16:33.581368",
+        "updated_at": "2026-05-13 13:16:33.581524",
+        "title": "Python Basics",
+        "author": "John",
+        "pages": 120,
+        "genre": "Programming",
+        "is_borrowed": false
+    },
+    {
+        "file_name": "book",
+        "id": 1,
+        "created_at": "2026-05-13 13:16:33.581405",
+        "updated_at": "2026-05-13 13:16:33.609042",
+        "title": "Java Basics",
+        "author": "Mike",
+        "pages": 150,
+        "genre": "Programming",
+        "is_borrowed": false
+    },
+    {
+        "file_name": "book",
+        "id": 1,
+        "created_at": "2026-05-13 13:16:33.581410",
+        "updated_at": "2026-05-13 13:16:33.630748",
+        "title": "C++ Basics",
+        "author": "David",
+        "pages": 180,
+        "genre": "Programming",
+        "is_borrowed": false
+    },
+    {
+        "file_name": "book",
+        "id": 1,
+        "created_at": "2026-05-13 13:16:33.581368",
+        "updated_at": "2026-05-13 13:16:33.694247",
+        "title": "Python Basics",
+        "author": "John",
+        "pages": 120,
+        "genre": "Programming",
+        "is_borrowed": true
+    },
+    {
+        "file_name": "book",
+        "id": 1,
+        "created_at": "2026-05-13 13:16:33.581405",
+        "updated_at": "2026-05-13 13:16:33.718859",
+        "title": "Java Basics",
+        "author": "Mike",
+        "pages": 150,
+        "genre": "Programming",
+        "is_borrowed": true
+    },
+    {
+        "file_name": "book",
+        "id": 1,
+        "created_at": "2026-05-13 13:16:33.581410",
+        "updated_at": "2026-05-13 13:16:33.739226",
+        "title": "C++ Basics",
+        "author": "David",
+        "pages": 180,
+        "genre": "Programming",
+        "is_borrowed": true
+    }
+]

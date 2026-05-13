@@ -63,21 +63,57 @@ class Book(BaseModel):
 
         self.title = title
         self.author = author
+        self.pages = pages
+        self.genre = genre
+        self.is_borrowed = False
 
 
-# objects
-userOne = User(
-    "userOne",
-    "Alice",
-    "alice@gmail.com"
-)
+# ---------------- USER CLASS ----------------
 
-bookOne = Book(
-    "bookOne",
-    "Python Basics",
-    "John Doe"
-)
+class User(Base):
 
-# save objects
-userOne.save()
-bookOne.save()
+    def __init__(self, file_name, name, user_id):
+        super().__init__(file_name)
+
+        self.name = name
+        self.user_id = user_id
+
+    def borrow_book(self, book):
+
+        if not book.is_borrowed:
+            book.is_borrowed = True
+            book.save()
+            print(f"{book.title} borrowed by {self.name}")
+        else:
+            print(f"{book.title} is not available")
+
+
+# ---------------- OBJECTS ----------------
+
+book1 = Book("book", "Python Basics", "John", 120, "Programming")
+book2 = Book("book", "Java Basics", "Mike", 150, "Programming")
+book3 = Book("book", "C++ Basics", "David", 180, "Programming")
+
+user1 = User("user", "John", "U001")
+user2 = User("user", "Jane", "U002")
+user3 = User("user", "Bob", "U003")
+
+
+# ---------------- SAVE DATA ----------------
+
+book1.save()
+book2.save()
+book3.save()
+
+user1.save()
+user2.save()
+user3.save()
+
+
+# ---------------- BORROW ----------------
+
+user1.borrow_book(book1)
+user2.borrow_book(book2)
+user3.borrow_book(book3)
+
+user1.borrow_book(book2)
