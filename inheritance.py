@@ -2,9 +2,10 @@ import json
 import os
 from datetime import datetime
 
+
 class BaseModel:
 
-    def _init_(self, file_name):
+    def __init__(self, file_name):
 
         self.file_name = file_name
         self.id = 1
@@ -16,56 +17,55 @@ class BaseModel:
 
     def to_dict(self):
 
-        return self._dict_
+        return self.__dict__
 
     def save(self):
 
         filename = f"{self.file_name}.json"
 
+        # check if file already exists
         if os.path.exists(filename):
 
             with open(filename, "r") as file:
 
                 old_data = json.load(file)
-            
+
+                # keep old id and created_at
                 self.id = old_data["id"]
-            self.created_at = old_data["created_at"]
+                self.created_at = old_data["created_at"]
+
+            # update time
             self.updated_at = str(datetime.now())
 
+        # save new data
         with open(filename, "w") as file:
 
             json.dump(self.to_dict(), file, indent=4)
 
         print(filename, "saved successfully")
-        class User(BaseModel):
-
-    def _init_(self, file_name, username, email):
-
-        super()._init_(file_name)
-
-        self.username = username
-        self.email = email
 
 
 class User(BaseModel):
 
-    def _init_(self, file_name, username, email):
+    def __init__(self, file_name, username, email):
 
-        super()._init_(file_name)
+        super().__init__(file_name)
 
         self.username = username
         self.email = email
+
 
 class Book(BaseModel):
 
     def __init__(self, file_name, title, author):
 
-        super()._init_(file_name)
+        super().__init__(file_name)
 
         self.title = title
         self.author = author
 
 
+# objects
 userOne = User(
     "userOne",
     "Alice",
@@ -78,5 +78,6 @@ bookOne = Book(
     "John Doe"
 )
 
+# save objects
 userOne.save()
 bookOne.save()
